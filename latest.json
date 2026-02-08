@@ -1,6 +1,6 @@
-{
-  "version": "alpha",
-  "date": "TBD",
-  "url": "https://simduty.com/releases/latest/SimuDuty-Release.zip",
-  "sha256": "REPLACE_WITH_SHA256"
+﻿{
+    "date":  "2026-02-08",
+    "url":  "https://simduty.com/releases/latest/SimuDuty-Release.zip",
+    "version":  "alpha",
+    "sha256":  "B02D34B2FF3E1D6A4BC8DB7519A9A7CF3EB6F52FC187CA86A56565E1C73CD474"
 }
