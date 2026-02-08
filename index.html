@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SimuDuty - Releases</title>
+    <meta name="description" content="Releases oficiais do SimuDuty." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-1: #f4f1ea;
+        --bg-2: #e7ecef;
+        --ink-1: #1b1b1f;
+        --ink-2: #3b3b44;
+        --accent: #2f6f6f;
+        --accent-2: #caa23d;
+        --card: #ffffff;
+        --border: #d6d8de;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", system-ui, sans-serif;
+        color: var(--ink-1);
+        background: radial-gradient(1200px 600px at 10% 0%, #ffffff 0%, var(--bg-1) 35%, var(--bg-2) 100%);
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 48px 24px 64px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 20px;
+        padding: 32px;
+        background: linear-gradient(135deg, rgba(47, 111, 111, 0.12), rgba(202, 162, 61, 0.12));
+        border: 1px solid var(--border);
+        border-radius: 18px;
+      }
+
+      h1 {
+        font-size: clamp(28px, 3vw, 40px);
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .hero p {
+        margin: 0;
+        color: var(--ink-2);
+        line-height: 1.6;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        background: var(--accent);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(47, 111, 111, 0.2);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        margin-top: 28px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+        min-height: 150px;
+      }
+
+      .card h2 {
+        font-size: 18px;
+        margin: 0 0 10px;
+      }
+
+      .card p,
+      .card li {
+        color: var(--ink-2);
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      code {
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        background: #f2f4f7;
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+
+      .footer {
+        margin-top: 36px;
+        color: var(--ink-2);
+        font-size: 13px;
+      }
+
+      @media (max-width: 640px) {
+        .hero {
+          padding: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <h1>SimuDuty Releases</h1>
+        <p>
+          Versao alpha pronta para teste. Este pacote inclui o app e notas de instalacao. Para evitar avisos de
+          antivirus, baixe sempre pelo link oficial abaixo e valide o hash.
+        </p>
+        <div>
+          <a class="cta" href="releases/latest/SimuDuty-Release.zip">Download SimuDuty (alpha)</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Hash SHA256</h2>
+          <p>
+            Compare com o arquivo publicado em
+            <a href="releases/latest/SHA256SUMS.txt">SHA256SUMS.txt</a>.
+          </p>
+          <p>Exemplo (PowerShell): <code>Get-FileHash SimuDuty-Release.zip -Algorithm SHA256</code></p>
+        </article>
+
+        <article class="card">
+          <h2>Instalacao</h2>
+          <p>
+            Veja as instrucoes completas em
+            <a href="releases/latest/README-Install.md">README-Install.md</a>.
+          </p>
+          <ul>
+            <li>Extraia o zip.</li>
+            <li>Execute <code>SimuDuty.exe</code>.</li>
+            <li>Instale os plugins na pasta do jogo.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Notas</h2>
+          <p>
+            Este release e alpha. Se algum antivirus marcar como falso positivo, avise para enviarmos a amostra ao
+            fabricante.
+          </p>
+        </article>
+      </section>
+
+      <p class="footer">Distribuicao oficial: simduty.com</p>
+    </main>
+  </body>
+</html>

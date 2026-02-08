@@ -1,0 +1,1 @@
+REPLACE_WITH_SHA256  SimuDuty-Release.zip
