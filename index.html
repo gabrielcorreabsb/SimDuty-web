@@ -119,6 +119,20 @@
         font-size: 13px;
       }
 
+      .banner {
+        margin-top: 20px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        background: #fff4d8;
+        border: 1px solid #e0cfa2;
+        color: #3b2f16;
+        font-size: 14px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
       @media (max-width: 640px) {
         .hero {
           padding: 24px;
@@ -137,6 +151,9 @@
         <div>
           <a class="cta" id="download-cta" href="releases/latest/SimuDuty-Release.zip">Download SimuDuty (alpha)</a>
         </div>
+        <div class="banner hidden" id="status-banner">
+          Nao foi possivel carregar os metadados do release. Verifique o hash manualmente.
+        </div>
       </section>
 
       <section class="grid">
@@ -148,6 +165,7 @@
           </p>
           <p>SHA256: <code id="hash-value">REPLACE_WITH_SHA256</code></p>
           <p>PowerShell: <code>Get-FileHash SimuDuty-Release.zip -Algorithm SHA256</code></p>
+          <p>Guia rapido: <a href="verify.html">verificar hash</a>.</p>
         </article>
 
         <article class="card">
@@ -189,6 +207,7 @@
           const hashValue = document.getElementById("hash-value");
           const hashLink = document.getElementById("hash-link");
           const installLink = document.getElementById("install-link");
+          const banner = document.getElementById("status-banner");
 
           if (data.url) {
             cta.href = data.url;
@@ -200,6 +219,8 @@
 
           if (data.sha256) {
             hashValue.textContent = data.sha256;
+          } else {
+            banner.classList.remove("hidden");
           }
 
           if (data.url && data.url.includes("/releases/")) {
@@ -208,7 +229,10 @@
             installLink.href = `${basePath}README-Install.md`;
           }
         })
-        .catch(() => {});
+        .catch(() => {
+          const banner = document.getElementById("status-banner");
+          banner.classList.remove("hidden");
+        });
     </script>
   </body>
 </html>
