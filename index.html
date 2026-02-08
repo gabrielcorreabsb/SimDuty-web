@@ -135,7 +135,7 @@
           antivirus, baixe sempre pelo link oficial abaixo e valide o hash.
         </p>
         <div>
-          <a class="cta" href="releases/latest/SimuDuty-Release.zip">Download SimuDuty (alpha)</a>
+          <a class="cta" id="download-cta" href="releases/latest/SimuDuty-Release.zip">Download SimuDuty (alpha)</a>
         </div>
       </section>
 
@@ -144,16 +144,17 @@
           <h2>Hash SHA256</h2>
           <p>
             Compare com o arquivo publicado em
-            <a href="releases/latest/SHA256SUMS.txt">SHA256SUMS.txt</a>.
+            <a id="hash-link" href="releases/latest/SHA256SUMS.txt">SHA256SUMS.txt</a>.
           </p>
-          <p>Exemplo (PowerShell): <code>Get-FileHash SimuDuty-Release.zip -Algorithm SHA256</code></p>
+          <p>SHA256: <code id="hash-value">REPLACE_WITH_SHA256</code></p>
+          <p>PowerShell: <code>Get-FileHash SimuDuty-Release.zip -Algorithm SHA256</code></p>
         </article>
 
         <article class="card">
           <h2>Instalacao</h2>
           <p>
             Veja as instrucoes completas em
-            <a href="releases/latest/README-Install.md">README-Install.md</a>.
+            <a id="install-link" href="releases/latest/README-Install.md">README-Install.md</a>.
           </p>
           <ul>
             <li>Extraia o zip.</li>
@@ -173,5 +174,41 @@
 
       <p class="footer">Distribuicao oficial: simduty.com</p>
     </main>
+    <script>
+      const fallback = {
+        version: "alpha",
+        date: "TBD",
+        url: "releases/latest/SimuDuty-Release.zip",
+        sha256: "REPLACE_WITH_SHA256",
+      };
+
+      fetch("latest.json", { cache: "no-store" })
+        .then((res) => (res.ok ? res.json() : fallback))
+        .then((data) => {
+          const cta = document.getElementById("download-cta");
+          const hashValue = document.getElementById("hash-value");
+          const hashLink = document.getElementById("hash-link");
+          const installLink = document.getElementById("install-link");
+
+          if (data.url) {
+            cta.href = data.url;
+          }
+
+          if (data.version) {
+            cta.textContent = `Download SimuDuty (${data.version})`;
+          }
+
+          if (data.sha256) {
+            hashValue.textContent = data.sha256;
+          }
+
+          if (data.url && data.url.includes("/releases/")) {
+            const basePath = data.url.replace("SimuDuty-Release.zip", "");
+            hashLink.href = `${basePath}SHA256SUMS.txt`;
+            installLink.href = `${basePath}README-Install.md`;
+          }
+        })
+        .catch(() => {});
+    </script>
   </body>
 </html>
