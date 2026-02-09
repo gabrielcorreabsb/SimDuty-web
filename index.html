@@ -33,15 +33,14 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container">
-      <a href="#" class="logo">
-        <span>Sim</span>Duty
-      </a>
+      <a href="#" class="logo">SimDuty</a>
 
       <div class="nav">
         <nav class="nav-links">
           <a href="#features" data-i18n="nav_features">Features</a>
           <a href="#install" data-i18n="nav_install">Installation</a>
-          <a href="#download" class="text-brand" data-i18n="nav_download">Download Alpha</a>
+          <!-- <a href="#download" class="text-brand" data-i18n="nav_download">Download Alpha</a> -->
+          <span class="text-muted" data-i18n="nav_download_soon">Download (Soon)</span>
         </nav>
 
         <div class="lang-switcher">
@@ -59,13 +58,13 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <span class="badge" data-i18n="badge_alpha">Alpha Version Available</span>
+      <!-- <span class="badge" data-i18n="badge_alpha">Alpha Version Available</span> -->
       <h1 data-i18n="hero_title">The Armored Engine<br>for your Simulation</h1>
       <p data-i18n="hero_desc">A persistent ELD/HOS system, crash-resilient and with complete auditing for American
         Truck Simulator and Euro Truck Simulator 2.</p>
 
       <div class="cta-group">
-        <a href="#download" class="btn" data-i18n="btn_download">Download Now</a>
+        <button class="btn btn-disabled" disabled data-i18n="btn_coming_soon">Coming Soon</button>
       </div>
     </div>
   </section>
@@ -112,6 +111,19 @@
           <p data-i18n="feat_3_desc">Every event is logged in a cryptographically chained Ledger (SHA256). Ideal for
             VTCs requiring proof of integrity.</p>
         </article>
+
+        <!-- Feature 4 -->
+        <article class="card">
+          <h3>
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span data-i18n="feat_4_title">Know Your Profit</span>
+          </h3>
+          <p data-i18n="feat_4_desc">Track every expense: fuel, tolls, fines. See exactly how much that speeding ticket
+            cost you.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -125,7 +137,7 @@
           <p data-i18n="dl_ready_desc">Download the latest SimDuty version. Includes the Desktop App and necessary
             plugins for ATS/ETS2.</p>
           <div style="margin-top: 2rem;">
-            <a id="download-zip" href="releases/latest/SimDuty-Release.zip" class="btn" data-i18n="dl_btn_zip">Download .ZIP (Alpha)</a>
+            <button class="btn btn-disabled" disabled data-i18n="dl_btn_soon">Coming Soon</button>
             <p style="margin-top:1rem; font-size: 0.9rem; color: var(--text-muted);" data-i18n="dl_compat">Compatible
               with Windows 10/11 x64</p>
           </div>
@@ -148,6 +160,14 @@
   <section id="install" class="installation">
     <div class="container">
       <h2 data-i18n="inst_title">How to Install</h2>
+      <div class="requirements">
+        <h3 data-i18n="req_title">Requirements</h3>
+        <ul class="requirements-list">
+          <li data-i18n="req_1">Windows 10/11 x64.</li>
+          <li data-i18n="req_2">No .NET install required (self-contained build).</li>
+          <li data-i18n="req_3">ATS/ETS2 installed to use plugins.</li>
+        </ul>
+      </div>
       <div class="steps">
         <div class="step-item">
           <h3 data-i18n="inst_step_1_title">Extract</h3>
@@ -179,7 +199,7 @@
       <div class="footer-links">
         <a href="https://github.com/gabrielcorreabsb/SimDuty">GitHub</a>
         <a href="#" data-i18n="footer_roadmap">Roadmap</a>
-        <a href="#" data-i18n="footer_bug">Report Bug</a>
+        <a href="https://github.com/gabrielcorreabsb/SimDuty-web/issues" data-i18n="footer_bug">Report Bug</a>
       </div>
       <p data-i18n="footer_rights">&copy; 2026 SimDuty Project. Distributed under MIT License.<br>Not affiliated with
         SCS Software.</p>
