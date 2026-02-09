@@ -141,6 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const hashElement = document.getElementById('sha256-hash');
   const copyBtn = document.getElementById('copy-hash-btn');
   const hashUrl = 'releases/latest/SHA256SUMS.txt';
+  const metaUrl = 'latest.json';
+  const downloadBtn = document.getElementById('download-zip');
   const langSelect = document.getElementById('language-selector');
 
   // --- I18n Logic ---
@@ -180,6 +182,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- SHA256 Logic ---
+  async function fetchReleaseMeta() {
+    try {
+      const response = await fetch(metaUrl, { cache: 'no-store' });
+      if (!response.ok) throw new Error('Meta fetch failed');
+
+      const data = await response.json();
+
+      if (downloadBtn && data.url) {
+        downloadBtn.href = data.url;
+      }
+
+      if (hashElement && data.sha256) {
+        hashElement.textContent = data.sha256;
+      }
+
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
   async function fetchHash() {
     try {
       const response = await fetch(hashUrl);
@@ -220,5 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  fetchHash();
+  fetchReleaseMeta().then((ok) => {
+    if (!ok) {
+      fetchHash();
+    }
+  });
 });
