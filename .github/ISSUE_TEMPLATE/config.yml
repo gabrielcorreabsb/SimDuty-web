@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Installation help
+    url: https://simduty.com/#install
+    about: Steps to install SimDuty and plugins.
+  - name: Verify download hash
+    url: https://simduty.com/verify.html
+    about: Check SHA256 for the latest release.
