@@ -1,11 +1,11 @@
-# SimuDuty - Install Notes
+# SimDuty - Install Notes
 
 ## App
-- Run `SimuDuty.exe` from the release package.
+- Run `SimDuty.exe` from the release package.
 - Logs/Saves/Config will be created in:
-  - `%LOCALAPPDATA%\SimuDuty\Logs`
-  - `%LOCALAPPDATA%\SimuDuty\Saves`
-  - `%LOCALAPPDATA%\SimuDuty\Config`
+- `%LOCALAPPDATA%\SimDuty\Logs`
+- `%LOCALAPPDATA%\SimDuty\Saves`
+- `%LOCALAPPDATA%\SimDuty\Config`
 - Key files you may see:
   - `Config/gui_setup.json`
   - `Saves/eld_save_<PLATE>_<TRUCK>.json` (+ `.bak`/`.tmp`)
@@ -20,5 +20,5 @@
   - ETS2 (32-bit): `...\Euro Truck Simulator 2\bin\win_x86\plugins`
 
 ## Troubleshooting
-- If SimuDuty does not connect, verify the plugin DLLs are in the correct game plugins folder.
+- If SimDuty does not connect, verify the plugin DLLs are in the correct game plugins folder.
 - Open the Debug tab and confirm the DLL status is OK and `GET_GAME_TIME_INFO` returns a source.
