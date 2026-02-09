@@ -232,17 +232,21 @@ ul {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-generic);
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   border-radius: var(--radius-md);
   transition: border-color 0.2s, transform 0.2s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card:hover {
@@ -254,18 +258,498 @@ ul {
   font-size: 1.25rem;
   margin-bottom: 1rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.75rem;
   color: var(--text-primary);
+  font-weight: 700;
 }
 
 .card svg {
   color: var(--accent-primary);
+  margin-bottom: 0.25rem;
 }
 
 .card p {
   color: var(--text-secondary);
   font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 320px;
+}
+
+/* Gallery Section */
+/* --- HOS Explainer Section --- */
+.hos-section {
+  padding: 5rem 0;
+  background-color: var(--bg-deep);
+  /* Dark background */
+  border-bottom: 1px solid var(--border-generic);
+  overflow: hidden;
+  /* For neon glow spill */
+}
+
+.hos-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+@media (max-width: 900px) {
+  .hos-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.hos-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #fff, #aaa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  /* Fallback */
+}
+
+.hos-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.hos-content strong {
+  color: var(--accent-primary);
+}
+
+.hos-features {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.hos-features li {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .hos-features li {
+    justify-content: center;
+  }
+}
+
+.hos-rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+  .hos-rules-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: left;
+    /* Keep left align for lists typically, or center? Left is better for bullets */
+  }
+}
+
+.rule-group h4 {
+  font-size: 1.2rem;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-generic);
+  padding-bottom: 0.5rem;
+}
+
+.rule-group ul {
+  list-style: none;
+  padding: 0;
+}
+
+.rule-group li {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.hos-note {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Neon Gauge Card */
+.hos-visual {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.simulation-hint {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.hos-rest-btn {
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-family: var(--font-ui);
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
+  pointer-events: none;
+  /* purely visual for sim */
+}
+
+.hos-rest-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hos-rest-btn.active {
+  background: var(--accent-primary);
+  color: #000;
+  box-shadow: 0 0 20px var(--accent-primary);
+}
+
+.neon-card {
+  background: var(--bg-surface);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.15), inset 0 0 20px rgba(0, 229, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.neon-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 50px rgba(0, 229, 255, 0.25), inset 0 0 30px rgba(0, 229, 255, 0.1);
+}
+
+.gauge-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+.progress-ring__circle {
+  stroke-dasharray: 565;
+  /* 2 * PI * r (r=90) approx 565 */
+  stroke-dashoffset: 150;
+  /* Initial random value */
+  transition: stroke-dashoffset 1s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 0 5px var(--accent-primary));
+}
+
+.gauge-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.gauge-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.gauge-value {
+  display: block;
+  font-family: var(--font-mono);
+  /* Simulating digital clock */
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.neon-card-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-primary);
+  animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Gallery Styling */
+
+.gallery {
+  padding: 5rem 0;
+  background-color: var(--bg-deep);
+  /* Dark background to contrast with cards */
+}
+
+.gallery h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.gallery-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.gallery-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Carousel Styles --- */
+.carousel-container {
+  position: relative;
+  max-width: 900px;
+  /* Limit width for professional look */
+  margin: 0 auto 3rem auto;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  /* Optional: Shadow for the whole carousel frame */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  /* Each slide takes full container width */
+  box-sizing: border-box;
+}
+
+/* Adjust gallery item inside carousel to remove hover transform since it's swiping */
+.carousel-slide .gallery-item {
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+
+.carousel-slide .gallery-item:hover {
+  transform: none !important;
+}
+
+.carousel-slide .img-wrapper {
+  border-bottom: none;
+  /* Cleaner look inside carousel */
+}
+
+/* Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-btn:hover {
+  background: var(--accent-primary);
+  color: #000;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: -4rem;
+}
+
+.next-btn {
+  right: -4rem;
+}
+
+/* Responsive Buttons: Move inside on smaller screens */
+@media (max-width: 1000px) {
+  .prev-btn {
+    left: 1rem;
+  }
+
+  .next-btn {
+    right: 1rem;
+  }
+}
+
+/* Indicators (Dots) */
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-indicator {
+  border: 0;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.carousel-indicator.current-slide {
+  background: var(--accent-primary);
+  transform: scale(1.2);
+}
+
+/* Mobile Grid adjustments */
+.mobile-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--bg-surface);
+  /* Removed border to fix visual glitches, focusing on shadow and inner flow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 229, 255, 0.15);
+  z-index: 10;
+}
+
+.img-wrapper {
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-generic);
+  background-color: transparent;
+  /* Fix white corners: use transparent or match image bg */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+  /* Zoom effect */
+}
+
+/* Specific aspect ratios for consistent heights if needed, 
+   but 'width: 100%' is usually safer for responsive. 
+   Adding zoom on hover: */
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-caption {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  background-color: var(--bg-surface);
+  position: relative;
+  z-index: 2;
+  /* Keep caption above zoomed image if overlap happens */
 }
 
 /* Download & Verify Section */
@@ -277,10 +761,43 @@ ul {
 }
 
 .download-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: 3rem;
+}
+
+.download-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.download-info p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.cta-wrapper {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.compat-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.compat-info svg {
+  color: var(--status-good);
 }
 
 .verify-box {
@@ -291,6 +808,8 @@ ul {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   position: relative;
+  display: none;
+  /* Hidden until release is ready */
 }
 
 .verify-box h4 {
@@ -331,46 +850,95 @@ ul {
   padding: 5rem 0;
 }
 
+.requirements {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-generic);
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+}
+
+.requirements h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.requirements-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.requirements-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.requirements-list li svg {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
 .steps {
-  counter-reset: install-step;
-  margin-top: 2rem;
+  margin-top: 3rem;
   display: grid;
   gap: 2rem;
 }
 
 .step-item {
-  position: relative;
-  padding-left: 3.5rem;
-}
-
-.step-item::before {
-  counter-increment: install-step;
-  content: counter(install-step);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2.5rem;
-  height: 2.5rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-generic);
-  color: var(--accent-primary);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: border-color 0.2s;
+}
+
+.step-item:hover {
+  border-color: var(--accent-primary);
+}
+
+.step-number {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, var(--accent-primary), #00b8d4);
+  color: #000;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
 }
 
-.step-item h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+.step-content {
+  flex: 1;
+}
+
+.step-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
   color: var(--text-primary);
 }
 
-.step-item p {
+.step-content p {
   color: var(--text-secondary);
-  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.plugin-paths {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
 code {
@@ -409,5 +977,28 @@ code {
 
   .hero h1 {
     font-size: 2.5rem;
+  }
+}
+
+/* Disabled Button State */
+.btn-disabled {
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border-generic);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .step-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .step-number {
+    margin-bottom: 0.5rem;
   }
 }

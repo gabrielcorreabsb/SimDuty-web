@@ -19,13 +19,44 @@
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
 
+  <!-- SEO -->
+  <meta name="keywords"
+    content="SimDuty, ELD, HOS, ETS2, ATS, Euro Truck Simulator 2, American Truck Simulator, Tachograph, Logbook, Simulation">
+  <meta name="author" content="SimDuty Project">
+  <link rel="canonical" href="https://simduty.com/">
+
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://simduty.com/">
-  <meta property="og:title" content="SimDuty - Professional ELD & HOS">
+  <meta property="og:title" content="SimDuty - Smart HOS & ELD for Truck Simulators">
   <meta property="og:description"
+    content="The armored engine for your simulation. Persistent HOS, fully auditable, and crash-proof. Compatible with ETS2 & ATS.">
+  <meta property="og:image" content="https://simduty.com/assets/imgs/home_tablet.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SimDuty - Smart HOS & ELD">
+  <meta name="twitter:description"
     content="Persistent HOS Simulator for ATS/ETS2. Auditable, fail-proof, and ready for real operations.">
-  <meta property="og:image" content="https://simduty.com/assets/img/og-preview.png">
+  <meta name="twitter:image" content="https://simduty.com/assets/imgs/home_tablet.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SimDuty",
+    "operatingSystem": "Windows 10, Windows 11",
+    "applicationCategory": "GameApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Persistent ELD/HOS system for Euro Truck Simulator 2 and American Truck Simulator.",
+    "softwareVersion": "Alpha"
+  }
+  </script>
 </head>
 
 <body>
@@ -128,6 +159,171 @@
     </div>
   </section>
 
+  <!-- Features Section -->
+  <!-- ... (Features section existing code) ... -->
+
+  <!-- HOS Explainer Section -->
+  <section id="hos-explainer" class="hos-section">
+    <div class="container hos-container">
+      <div class="hos-content">
+        <h2 data-i18n="hos_title">Smart HOS</h2>
+        <p data-i18n="hos_desc_1">
+          <strong>No more math. No more fines.</strong>
+        </p>
+        <p data-i18n="hos_desc_2">
+          SimDuty manages your <strong>Drive & Rest</strong> times automatically. Just drive until the clock turns red,
+          then rest. It's that simple.
+        </p>
+
+        <div class="hos-rules-grid">
+          <div class="rule-group">
+            <h4 data-i18n="hos_rule_us_ca">🇺🇸 USA & 🇨🇦 Canada</h4>
+            <ul>
+              <li data-i18n="hos_rule_1">Federal & State Rules</li>
+              <li data-i18n="hos_rule_2">Cycle & Shift Limits</li>
+              <li data-i18n="hos_rule_3">Mandatory Breaks</li>
+            </ul>
+          </div>
+          <div class="rule-group">
+            <h4 data-i18n="hos_rule_eu_br">🇪🇺 Europe & 🇧🇷 Brazil</h4>
+            <ul>
+              <li data-i18n="hos_rule_4">EU Regulations</li>
+              <li data-i18n="hos_rule_5">Brazil (Lei 13.103)</li>
+              <li data-i18n="hos_rule_6">Rest Requirements</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="hos-note" data-i18n="hos_note">Simulates <strong>Drive Left, Shift Left, and Cycle Left</strong> in
+          real-time.</p>
+      </div>
+
+      <div class="hos-visual">
+        <!-- Neon HOS Card Replica -->
+        <div class="neon-card" id="hos-clock">
+          <div class="gauge-container">
+            <!-- SVG Circular Progress -->
+            <svg class="progress-ring" width="220" height="220">
+              <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.1)" stroke-width="12"
+                fill="transparent" r="90" cx="110" cy="110" />
+              <circle class="progress-ring__circle" id="hos-progress" stroke="#00e5ff" stroke-width="12"
+                fill="transparent" r="90" cx="110" cy="110" />
+            </svg>
+            <div class="gauge-text">
+              <span class="gauge-label" id="hos-label" data-i18n="hos_gauge_label">DRIVE LEFT</span>
+              <span class="gauge-value" id="hos-timer">08:00</span>
+            </div>
+          </div>
+          <div class="neon-card-footer">
+            <span class="status-dot" id="hos-dot"></span> <span id="hos-status-text"
+              data-i18n="hos_status">DRIVING</span>
+          </div>
+          <button id="hos-rest-btn" class="hos-rest-btn" data-i18n="hos_rest_btn">TAKE BREAK</button>
+        </div>
+        <div class="simulation-hint" data-i18n="hos_sim_hint">Running Simulation...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <h2 data-i18n="gallery_title">See it in Action</h2>
+      <!-- Tablet Layout (Carousel) -->
+      <h3 class="gallery-subtitle" data-i18n="gallery_tablet">Tablet Mode</h3>
+      <div class="carousel-container" id="tablet-carousel">
+
+        <button class="carousel-btn prev-btn" aria-label="Previous Slide">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <div class="carousel-track-container">
+          <ul class="carousel-track">
+            <li class="carousel-slide current-slide">
+              <div class="gallery-item">
+                <div class="img-wrapper">
+                  <img src="assets/imgs/home_tablet.png" alt="Home Screen Tablet">
+                </div>
+                <div class="gallery-caption" data-i18n="gallery_cap_home">Home Screen</div>
+              </div>
+            </li>
+            <li class="carousel-slide">
+              <div class="gallery-item">
+                <div class="img-wrapper">
+                  <img src="assets/imgs/hos_tablet.png" alt="HOS Dashboard Tablet">
+                </div>
+                <div class="gallery-caption" data-i18n="gallery_cap_hos">HOS Dashboard</div>
+              </div>
+            </li>
+            <li class="carousel-slide">
+              <div class="gallery-item">
+                <div class="img-wrapper">
+                  <img src="assets/imgs/econ_tablet.png" alt="Economy Tracking Tablet">
+                </div>
+                <div class="gallery-caption" data-i18n="gallery_cap_econ">Economy & Logistics</div>
+              </div>
+            </li>
+            <li class="carousel-slide">
+              <div class="gallery-item">
+                <div class="img-wrapper">
+                  <img src="assets/imgs/setting_tablet.png" alt="Settings Tablet">
+                </div>
+                <div class="gallery-caption" data-i18n="gallery_cap_settings">Settings</div>
+              </div>
+            </li>
+            <li class="carousel-slide">
+              <div class="gallery-item">
+                <div class="img-wrapper">
+                  <img src="assets/imgs/tripreport_tablet.png" alt="Trip Report Tablet">
+                </div>
+                <div class="gallery-caption" data-i18n="gallery_cap_report">Detailed Trip Reports</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <button class="carousel-btn next-btn" aria-label="Next Slide">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <div class="carousel-nav">
+          <button class="carousel-indicator current-slide"></button>
+          <button class="carousel-indicator"></button>
+          <button class="carousel-indicator"></button>
+          <button class="carousel-indicator"></button>
+          <button class="carousel-indicator"></button>
+        </div>
+      </div>
+
+      <!-- Smartphone Layout -->
+      <h3 class="gallery-subtitle" data-i18n="gallery_mobile">Smartphone Mode</h3>
+      <div class="gallery-grid mobile-grid">
+        <div class="gallery-item">
+          <div class="img-wrapper">
+            <img src="assets/imgs/home_smartphone.png" alt="Home Screen Mobile">
+          </div>
+          <div class="gallery-caption" data-i18n="gallery_cap_home">Home Screen</div>
+        </div>
+        <div class="gallery-item">
+          <div class="img-wrapper">
+            <img src="assets/imgs/hos_smartphone.png" alt="HOS Dashboard Mobile">
+          </div>
+          <div class="gallery-caption" data-i18n="gallery_cap_hos">HOS Dashboard</div>
+        </div>
+        <div class="gallery-item">
+          <div class="img-wrapper">
+            <img src="assets/imgs/econ_smartphone.png" alt="Economy Mobile">
+          </div>
+          <div class="gallery-caption" data-i18n="gallery_cap_econ">Economy & Logistics</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Download & Verify -->
   <section id="download" class="download-section">
     <div class="container">
@@ -136,10 +332,15 @@
           <h2 data-i18n="dl_ready_title">Ready to roll?</h2>
           <p data-i18n="dl_ready_desc">Download the latest SimDuty version. Includes the Desktop App and necessary
             plugins for ATS/ETS2.</p>
-          <div style="margin-top: 2rem;">
+          <div class="cta-wrapper">
             <button class="btn btn-disabled" disabled data-i18n="dl_btn_soon">Coming Soon</button>
-            <p style="margin-top:1rem; font-size: 0.9rem; color: var(--text-muted);" data-i18n="dl_compat">Compatible
-              with Windows 10/11 x64</p>
+            <p class="compat-info" data-i18n="dl_compat">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Compatible with Windows 10/11 x64
+            </p>
           </div>
         </div>
 
@@ -159,35 +360,66 @@
   <!-- Installation -->
   <section id="install" class="installation">
     <div class="container">
-      <h2 data-i18n="inst_title">How to Install</h2>
+      <h2 data-i18n="inst_title">Quick Setup</h2>
+
       <div class="requirements">
         <h3 data-i18n="req_title">Requirements</h3>
         <ul class="requirements-list">
-          <li data-i18n="req_1">Windows 10/11 x64.</li>
-          <li data-i18n="req_2">No .NET install required (self-contained build).</li>
-          <li data-i18n="req_3">ATS/ETS2 installed to use plugins.</li>
+          <li data-i18n="req_1">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Windows 10/11 x64
+          </li>
+          <li data-i18n="req_2">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            No .NET install required (self-contained build)
+          </li>
+          <li data-i18n="req_3">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            ATS/ETS2 installed to use plugins
+          </li>
         </ul>
       </div>
+
       <div class="steps">
         <div class="step-item">
-          <h3 data-i18n="inst_step_1_title">Extract</h3>
-          <p data-i18n="inst_step_1_desc">Unzip <code>SimDuty-Release.zip</code> to a folder of your choice (e.g.,
-            <code>Documents/SimDuty</code>).
-          </p>
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 data-i18n="inst_step_1_title">Extract</h3>
+            <p data-i18n="inst_step_1_desc">Unzip <code>SimDuty-Release.zip</code> to a folder of your choice (e.g.,
+              <code>Documents/SimDuty</code>).
+            </p>
+          </div>
         </div>
+
         <div class="step-item">
-          <h3 data-i18n="inst_step_2_title">Install Plugins</h3>
-          <p data-i18n="inst_step_2_desc">Copy the DLLs from the <code>plugins</code> folder to the game plugins folder:
-          </p>
-          <ul style="margin-top: 0.5rem; font-size: 0.9em; color: var(--text-muted);">
-            <li>ATS: <code>American Truck Simulator/bin/win_x64/plugins</code></li>
-            <li>ETS2: <code>Euro Truck Simulator 2/bin/win_x64/plugins</code></li>
-          </ul>
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 data-i18n="inst_step_2_title">Install Plugins</h3>
+            <p data-i18n="inst_step_2_desc">Copy the DLLs from the <code>plugins</code> folder to the game plugins
+              folder:
+            </p>
+            <ul class="plugin-paths">
+              <li>ATS: <code>American Truck Simulator/bin/win_x64/plugins</code></li>
+              <li>ETS2: <code>Euro Truck Simulator 2/bin/win_x64/plugins</code></li>
+            </ul>
+          </div>
         </div>
+
         <div class="step-item">
-          <h3 data-i18n="inst_step_3_title">Run</h3>
-          <p data-i18n="inst_step_3_desc">Open <code>SimDuty.exe</code>. The system will automatically detect the game
-            when you enter the cabin.</p>
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3 data-i18n="inst_step_3_title">Drive</h3>
+            <p data-i18n="inst_step_3_desc">Launch <code>SimDuty.exe</code> first, then start your game. The system
+              connects automatically when you enter the truck cabin.</p>
+          </div>
         </div>
       </div>
     </div>
